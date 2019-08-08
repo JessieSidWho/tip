@@ -94,7 +94,7 @@ class Calculator extends Component {
             {this.state.showResult ?
                     <div className='row justify-content-md-center text-center mt-3'>
                         <div className='col-sm-12 display-4 text-center'>
-                            Each Person Owes: <span className='border border-primary rounded-pill'> ${ this.state.result.toFixed(2) } </span>
+                            Each Person<br></br> Pays:<br></br> <span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${ this.state.result.toFixed(2) } </span>
                         </div>
                      </div>
                     : null
