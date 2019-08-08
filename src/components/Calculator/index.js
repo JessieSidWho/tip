@@ -104,14 +104,4 @@ class Calculator extends Component {
     }
 }
 
-// Resultsdiv = () => {
-//     return (
-//         <div className="row justify-content-md-center text-center">
-//             <div className='col-sm-12'>
-//                 Each Person Owes: 
-//             </div>
-//         </div>
-//     )
-// }
-
 export default Calculator;
