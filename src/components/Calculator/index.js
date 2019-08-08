@@ -7,8 +7,8 @@ class Calculator extends Component {
         bill: '',
         party: '',
         tip: '',
-        formIsHidden: false,
-        resetIsHidden: true
+        showResult: false,
+        result: 0
     };
 
     handleInputChange = event => {
@@ -21,16 +21,33 @@ class Calculator extends Component {
         });
     };
 
+    handleReset = event => {
+        event.preventDefault()
+        this.setState({ bill: "", party: "", tip: "", showResult: false });
+    }
+
     handleSubmit = event => {
         event.preventDefault();
-        console.log(`Bill: ${this.state.bill}\nParty: ${this.state.party}\nTip: ${this.state.tip}`);
-        this.setState({ bill: "", party: "", tip: "", formIsHidden: true });
+        // console.log(`Bill: ${this.state.bill}\nParty: ${this.state.party}\nTip: ${this.state.tip}`);
+        let percentage = (n, percent) => {
+            return n * percent / 100;
+        }
+        let tipTotal = percentage(this.state.bill, this.state.tip)
+        this.setState({result: (Number(this.state.bill) + Number(tipTotal)) / Number(this.state.party)})
+        // console.log(`Tip Total: ${tipTotal}`);
+        // console.log(`Each Person Owes: ${this.state.result}`)
+        if (!isNaN(this.state.result)) {
+            this.setState({ showResult: true })
+        } else {
+            this.setState({ showResult: false})
+        }
     }
 
     render() {
         return (
+            <>
             <div className=' row justify-content-md-center text-center mt-3'>
-                <form className='col-sm-12'>
+                <form className='col-sm-12' onClick={this.handleShow} >
                     <label className=''> Total Bill Amount <br></br>
                         <input id='box1' className='rounded-lg text-center'
                             type='text'
@@ -62,16 +79,39 @@ class Calculator extends Component {
                     </label><br></br><br></br>
 
                     <label>
-                        <button className='btn btn-info'
-                            name='submit'
-                            type='submit'
-                            onClick={this.handleSubmit}
-                        >Submit</button>
+                        {!this.state.showResult ?
+                            <button className='btn btn-info' onClick={this.handleSubmit}>Submit</button>
+                            : null
+                        }
+
+                        {this.state.showResult ?
+                            <button className='btn btn-dark' onClick={this.handleReset}>Reset</button> 
+                            : null
+                        }
                     </label>
                 </form>
             </div>
+            {this.state.showResult ?
+                    <div className='row justify-content-md-center text-center mt-3'>
+                        <div className='col-sm-12 display-4 text-center'>
+                            Each Person Owes: <span className='border border-primary rounded-pill'> ${ this.state.result.toFixed(2) } </span>
+                        </div>
+                     </div>
+                    : null
+            }
+            </>
         )
     }
 }
+
+// Resultsdiv = () => {
+//     return (
+//         <div className="row justify-content-md-center text-center">
+//             <div className='col-sm-12'>
+//                 Each Person Owes: 
+//             </div>
+//         </div>
+//     )
+// }
 
 export default Calculator;
