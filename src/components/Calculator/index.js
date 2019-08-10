@@ -26,6 +26,11 @@ class Calculator extends Component {
         this.setState({ bill: "", party: "", tip: "", showResult: false });
     }
 
+    percentageEach = (n, percent, party) => {
+        let total = n * percent / 100;
+        return (total / party).toFixed(2);
+    }
+
     handleSubmit = event => {
         event.preventDefault();
         // console.log(`Bill: ${this.state.bill}\nParty: ${this.state.party}\nTip: ${this.state.tip}`);
@@ -52,12 +57,42 @@ class Calculator extends Component {
                         {/* Hidden */}
                         {this.state.showResult ?
                             <div className='row justify-content-md-center text-center mt-3'>
-                                <div className='col-sm-12 display-4 text-center'>
-                                    Each Person<br></br> Pays:<br></br> <span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${this.state.result.toFixed(2)} </span>
-                                
-                                    <br></br>
+                                <div className='col-sm-12 text-center'>
+                                    {/* Each Person<br></br> Pays:<br></br> <span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${this.state.result.toFixed(2)} </span> */}
 
-                                    <button className='btn btn-dark' onClick={this.handleReset}>Reset</button>
+                                    <div className='row justify-content-sm-center'>
+                                        <div className='col-md-3 border border-secondary rounded-lg p-2'>
+
+                                            <div className='row'>
+                                                <div className='col-sm-8 text-left'>
+                                                    <p className=''>Bill Amount:</p>
+                                                    <p className=''>Party Size:</p>
+                                                    <p className=''>Tip Amount:</p>
+                                                    <p className='border-bottom border-dark pr-5'></p>
+                                                    <p>&#40;Each Person Bill&#41;</p>
+                                                    <p>&#40;Each Person Tip&#41;</p>
+                                                    <p className='border-bottom border-dark pr-5'></p>
+                                                    <p>&#40;Each Person Pays&#41;</p>
+                                                </div>
+
+                                                <div className='col-sm-4 text-right'>
+                                                    <p className=''><span className='border-bottom border-success text-success'>${this.state.bill}</span></p>
+                                                    <p className=''><span className='border-bottom border-info text-info'>{this.state.party} People</span></p>
+                                                    <p className=''><span className='border-bottom border-primary text-primary'>{this.state.tip}%</span></p>
+                                                    <p className='border-bottom border-dark'></p>
+                                                    <p>{Number(this.state.bill) / Number(this.state.party)}</p>
+                                                    <p>+ {this.percentageEach(this.state.bill, this.state.tip, this.state.party)}</p>
+                                                    <p className='border-bottom border-dark'></p>
+                                                    <p><span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${this.state.result.toFixed(2)} </span></p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <br></br>
+                                    </div>
+
+                                    <button className='btn btn-dark mt-3' onClick={this.handleReset}>Reset</button>
                                 </div>
                             </div>
                             : null
