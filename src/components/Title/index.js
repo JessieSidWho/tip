@@ -7,7 +7,7 @@ const Title = () => {
         <>
             <Navbar className='row' expand="lg" bg="dark" variant="dark" >
                 <div className='col-md-12 text-center'>
-                    <Navbar.Brand className=''>Split n' Tip</Navbar.Brand>
+                    <Navbar.Brand className='' style={{fontFamily: 'Nanum Brush Script', fontSize: '8vw'}}>Split n' Tip</Navbar.Brand>
                 </div>
             </Navbar>
         </>
