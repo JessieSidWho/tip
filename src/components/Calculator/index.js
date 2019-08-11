@@ -56,12 +56,12 @@ class Calculator extends Component {
 
                         {/* Hidden */}
                         {this.state.showResult ?
-                            <div className='row justify-content-md-center text-center mt-3'>
-                                <div className='col-sm-12 text-center'>
+                            <div className='row justify-content-md-center text-center mt-3 mx-auto'>
+                                <div className='col-sm-12 text-center mx-auto'>
                                     {/* Each Person<br></br> Pays:<br></br> <span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${this.state.result.toFixed(2)} </span> */}
 
-                                    <div className='row justify-content-sm-center'>
-                                        <div className='col-md-3 border border-secondary rounded-lg p-2 ml-4'>
+                                    <div className='row justify-content-sm-center p-2 m-2 mx-auto'>
+                                        <div className='col-md-3 border border-secondary rounded-lg p-2'>
 
                                             <div className='d-flex justify-content-between'>
                                                 <div className=''>
