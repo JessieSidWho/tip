@@ -61,7 +61,7 @@ class Calculator extends Component {
                                     {/* Each Person<br></br> Pays:<br></br> <span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${this.state.result.toFixed(2)} </span> */}
 
                                     <div className='row justify-content-sm-center'>
-                                        <div className='col-md-3 border border-secondary rounded-lg p-2 mr-2 ml-3'>
+                                        <div className='col-md-3 border border-secondary rounded-lg p-2 mr-2 ml-4'>
 
                                             <div className='d-flex justify-content-between'>
                                                 <div className=''>
