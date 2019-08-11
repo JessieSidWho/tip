@@ -97,7 +97,7 @@ class Calculator extends Component {
                                                     &#40;Each Person Bill&#41;
                                                     </div>
                                                 <div className=''>
-                                                    {Number(this.state.bill) / Number(this.state.party)}
+                                                    {(Number(this.state.bill) / Number(this.state.party)).toFixed(2)}
                                                 </div>
                                             </div>
 
