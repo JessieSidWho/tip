@@ -61,37 +61,68 @@ class Calculator extends Component {
                                     {/* Each Person<br></br> Pays:<br></br> <span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${this.state.result.toFixed(2)} </span> */}
 
                                     <div className='row justify-content-sm-center'>
-                                        <div className='col-md-3 border border-secondary rounded-lg p-2'>
+                                        <div className='col-md-3 border border-secondary rounded-lg p-2 mr-2 ml-3'>
 
-                                            <div className='row'>
-                                                <div className='col-sm-8 text-left'>
-                                                    <p className=''>Bill Amount:</p>
-                                                    <p className=''>Party Size:</p>
-                                                    <p className=''>Tip Amount:</p>
-                                                    <p className='border-bottom border-dark pr-5'></p>
-                                                    <p>&#40;Each Person Bill&#41;</p>
-                                                    <p>&#40;Each Person Tip&#41;</p>
-                                                    <p className='border-bottom border-dark pr-5'></p>
-                                                    <p>&#40;Each Person Pays&#41;</p>
+                                            <div className='d-flex justify-content-between'>
+                                                <div className=''>
+                                                    Bill Amount:
+                                                    </div>
+                                                <div className=''>
+                                                    <span className='border-bottom border-success text-success'>${this.state.bill}</span>
                                                 </div>
-
-                                                <div className='col-sm-4 text-right'>
-                                                    <p className=''><span className='border-bottom border-success text-success'>${this.state.bill}</span></p>
-                                                    <p className=''><span className='border-bottom border-info text-info'>{this.state.party} People</span></p>
-                                                    <p className=''><span className='border-bottom border-primary text-primary'>{this.state.tip}%</span></p>
-                                                    <p className='border-bottom border-dark'></p>
-                                                    <p>{Number(this.state.bill) / Number(this.state.party)}</p>
-                                                    <p>+ {this.percentageEach(this.state.bill, this.state.tip, this.state.party)}</p>
-                                                    <p className='border-bottom border-dark'></p>
-                                                    <p><span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${this.state.result.toFixed(2)} </span></p>
-                                                </div>
-
                                             </div>
+
+                                            <div className='d-flex justify-content-between'>
+                                                <div className=''>
+                                                    Party Size:
+                                                    </div>
+                                                <div className=''>
+                                                    <span className='border-bottom border-info text-info'>{this.state.party} People</span>
+                                                </div>
+                                            </div>
+
+                                            <div className='d-flex justify-content-between'>
+                                                <div className=''>
+                                                    Tip Amount:
+                                                    </div>
+                                                <div className=''>
+                                                    <span className='border-bottom border-primary text-primary'>{this.state.tip}%</span>
+                                                </div>
+                                            </div>
+
+                                            <p className='border-bottom border-dark mt-2'></p>
+
+                                            <div className='d-flex justify-content-between'>
+                                                <div className=''>
+                                                    &#40;Each Person Bill&#41;
+                                                    </div>
+                                                <div className=''>
+                                                    {Number(this.state.bill) / Number(this.state.party)}
+                                                </div>
+                                            </div>
+
+                                            <div className='d-flex justify-content-between'>
+                                                <div className=''>
+                                                    &#40;Each Person Tip&#41;
+                                                    </div>
+                                                <div className=''>
+                                                    + {this.percentageEach(this.state.bill, this.state.tip, this.state.party)}
+                                                </div>
+                                            </div>
+
+                                            <p className='border-bottom border-dark mt-2'></p>
+
+                                            <div className='d-flex justify-content-between'>
+                                                <div className=''>
+                                                    &#40;Each Person Pays&#41;
+                                                    </div>
+                                                <div className=''>
+                                                    <span className='bg-primary text-white rounded-pill pl-2 pr-2'> ${this.state.result.toFixed(2)}</span>
+                                                </div>
+                                            </div>
+
                                         </div>
-
-                                        <br></br>
                                     </div>
-
                                     <button className='btn btn-dark mt-3' onClick={this.handleReset}>Reset</button>
                                 </div>
                             </div>
