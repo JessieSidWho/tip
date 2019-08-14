@@ -41,6 +41,10 @@ class Calculator extends Component {
         this.setState({ result: (Number(this.state.bill) + Number(tipTotal)) / Number(this.state.party) })
         // console.log(`Tip Total: ${tipTotal}`);
         // console.log(`Each Person Owes: ${this.state.result}`)
+        if(this.state.tip === ''){
+            this.setState({tip: 15});
+        }
+
         if (!isNaN(this.state.result)) {
             this.setState({ showResult: true })
         } else {
