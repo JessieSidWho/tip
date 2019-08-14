@@ -27,10 +27,8 @@ class Calculator extends Component {
     }
 
     percentageEach = (n, percent, party) => {
-
         let total = n * percent / 100;
         return (total / party).toFixed(2);
-
     }
 
     handleSubmit = event => {
