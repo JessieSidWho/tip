@@ -27,8 +27,10 @@ class Calculator extends Component {
     }
 
     percentageEach = (n, percent, party) => {
+
         let total = n * percent / 100;
         return (total / party).toFixed(2);
+
     }
 
     handleSubmit = event => {
@@ -37,13 +39,18 @@ class Calculator extends Component {
         let percentage = (n, percent) => {
             return n * percent / 100;
         }
-        let tipTotal = percentage(this.state.bill, this.state.tip)
-        this.setState({ result: (Number(this.state.bill) + Number(tipTotal)) / Number(this.state.party) })
-        // console.log(`Tip Total: ${tipTotal}`);
-        // console.log(`Each Person Owes: ${this.state.result}`)
-        if(this.state.tip === ''){
-            this.setState({tip: 15});
+
+        if (this.state.tip === '') {
+            this.setState({ tip: 15 });
+            let tipTotal = percentage(this.state.bill, 15)
+            this.setState({ result: (Number(this.state.bill) + Number(tipTotal)) / Number(this.state.party) })
+        } else {
+            let tipTotal = percentage(this.state.bill, this.state.tip)
+            this.setState({ result: (Number(this.state.bill) + Number(tipTotal)) / Number(this.state.party) })
+            // console.log(`Tip Total: ${tipTotal}`);
+            // console.log(`Each Person Owes: ${this.state.result}`)
         }
+        
 
         if (!isNaN(this.state.result)) {
             this.setState({ showResult: true })
