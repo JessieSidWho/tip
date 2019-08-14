@@ -139,7 +139,7 @@ class Calculator extends Component {
                             </div>
                             : null
                         }
-
+                        
                         {!this.state.showResult ?
                             <label className=''> Total Bill Amount <br></br>
                                 <input id='box1' className='rounded-lg text-center'
