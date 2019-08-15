@@ -185,7 +185,7 @@ class Calculator extends Component {
 
                         <label>
                             {!this.state.showResult ?
-                                <button className='btn btn-info' onClick={this.handleSubmit}>Submit</button>
+                                <button className='btn btn-info' disabled={this.state.bill === '' || this.state.party === '' ? true : false} onClick={this.handleSubmit}>Submit</button>
                                 : null
                             }
                         </label>
