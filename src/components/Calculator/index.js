@@ -144,7 +144,7 @@ class Calculator extends Component {
                                     type="number" pattern="[0-9]*" min="0" inputMode="numeric"
                                     name='bill'
                                     placeholder='$0.00'
-                                    value={this.state.bill}
+                                    value={Math.abs(this.state.bill)}
                                     onChange={this.handleInputChange}
                                     required />
                             </label>
@@ -159,7 +159,7 @@ class Calculator extends Component {
                                     type="number" pattern="[0-9]*" min="0" inputMode="numeric"
                                     name='party'
                                     placeholder='0'
-                                    value={this.state.party}
+                                    value={Math.abs(this.state.party)}
                                     onChange={this.handleInputChange}
                                     required></input>
                             </label>
@@ -174,7 +174,7 @@ class Calculator extends Component {
                                     type="number" pattern="[0-9]*" min="0" inputMode="numeric"
                                     name='tip'
                                     placeholder='15%'
-                                    value={this.state.tip}
+                                    value={Math.abs(this.state.tip)}
                                     onChange={this.handleInputChange}
                                     required></input>
                             </label>
