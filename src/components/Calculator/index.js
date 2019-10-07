@@ -141,7 +141,7 @@ class Calculator extends Component {
                         {!this.state.showResult ?
                             <label className=''> Total Bill Amount <br></br>
                                 <input id='box1' className='rounded-lg text-center'
-                                    type="number" pattern="[0-9]*" inputMode="numeric"
+                                    type="number" pattern="[0-9]*" min="0" inputMode="numeric"
                                     name='bill'
                                     placeholder='$0.00'
                                     value={this.state.bill}
@@ -156,7 +156,7 @@ class Calculator extends Component {
                         {!this.state.showResult ?
                             <label className=''> Party Size <br></br>
                                 <input id='box2' className='rounded-lg text-center'
-                                    type="number" pattern="[0-9]*" inputMode="numeric"
+                                    type="number" pattern="[0-9]*" min="0" inputMode="numeric"
                                     name='party'
                                     placeholder='0'
                                     value={this.state.party}
@@ -171,7 +171,7 @@ class Calculator extends Component {
                         {!this.state.showResult ?
                             <label className=''> Tip Amount <br></br>
                                 <input id='box3' className='rounded-lg text-center'
-                                    type="number" pattern="[0-9]*" inputMode="numeric"
+                                    type="number" pattern="[0-9]*" min="0" inputMode="numeric"
                                     name='tip'
                                     placeholder='15%'
                                     value={this.state.tip}
